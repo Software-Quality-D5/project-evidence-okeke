@@ -129,8 +129,41 @@ public class BinaryTest
 		Binary binary3=Binary.or(binary1.getValue(),binary2.getValue());
         assertTrue( binary3.getValue().equals("1011"));
     }
+	
+	@Test
+    public void or2()
+    {
+		Binary binary1=new Binary("1100");
+		Binary binary2=new Binary("11001");
+		Binary binary3=Binary.or(binary1.getValue(),binary2.getValue());
+        assertTrue( binary3.getValue().equals("11101"));
+    }
 	/**
-	* Test the bitwise logical operator AND with a binary number and an invalid number
+	* Test the bitwise logical operator OR with binary numbers of same length
+	*/
+	@Test
+    public void or3()
+    {
+		Binary binary1=new Binary("1111");
+		Binary binary2=new Binary("1010");
+		Binary binary3=Binary.or(binary1.getValue(),binary2.getValue());
+        assertTrue( binary3.getValue().equals("1111"));
+    }
+	/**
+	* Test the bitwise logical operator OR with binary numbers of different length
+	*/
+	/**
+	@Test
+    public void or3()
+    {
+		Binary binary1=new Binary("0000");
+		Binary binary2=new Binary("1010");
+		Binary binary3=Binary.or(binary1,binary2);
+        assertTrue( binary3.getValue().equals("1010"));
+    }**/
+	
+	/**
+	* Test the bitwise logical operator AND with a binary numbers of different length
 	*/ 
 	@Test
     public void and1()
@@ -139,6 +172,26 @@ public class BinaryTest
 		Binary binary2=new Binary("1010");
 		Binary binary3=Binary.and(binary1.getValue(),binary2.getValue());
         assertTrue( binary3.getValue().equals("10"));
+    }
+	
+	@Test
+    public void and2()
+    {
+		Binary binary1=new Binary("1100");
+		Binary binary2=new Binary("11001");
+		Binary binary3=Binary.and(binary1.getValue(),binary2.getValue());
+        assertTrue( binary3.getValue().equals("1000"));
+    }
+	/**
+	* Test the bitwise logical operator AND with a binary numbers of same length
+	*/ 
+	@Test
+    public void and3()
+    {
+		Binary binary1=new Binary("1111");
+		Binary binary2=new Binary("1010");
+		Binary binary3=Binary.and(binary1.getValue(),binary2.getValue());
+        assertTrue( binary3.getValue().equals("1010"));
     }
 	/**
 	* Test the multiplication function with binary numbers of the same length
@@ -151,5 +204,26 @@ public class BinaryTest
 		Binary binary2=new Binary("1010");
 		Binary binary3=Binary.multiply(binary1.getValue(),binary2.getValue());
         assertTrue( binary3.getValue().equals("10010110"));
+    }
+	/**
+	* Test the multiplication function with binary numbers of the different length
+	*/
+	
+	@Test
+    public void mul2()
+    {
+		Binary binary1=new Binary("11");
+		Binary binary2=new Binary("1010");
+		Binary binary3=Binary.multiply(binary1.getValue(),binary2.getValue());
+        assertTrue( binary3.getValue().equals("11110"));
+    }
+	
+	@Test
+    public void mul3()
+    {
+		Binary binary1=new Binary("1100");
+		Binary binary2=new Binary("11001");
+		Binary binary3=Binary.multiply(binary1.getValue(),binary2.getValue());
+        assertTrue( binary3.getValue().equals("100101100"));
     }
 }
